@@ -20,11 +20,18 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install pytest pytest-playwright requests
+          pip install pytest pytest-playwright requests allure-pytest
           playwright install chromium
 
       - name: Run API tests
-        run: python -m pytest tests/test_api.py -v
+        run: python -m pytest tests/test_api.py -v --alluredir=allure-results
 
       - name: Run E2E tests
-        run: python -m pytest tests/test_e2e.py -v
+        run: python -m pytest tests/test_e2e.py -v --alluredir=allure-results
+
+      - name: Upload Allure results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-results
+          path: allure-results/
