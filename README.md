@@ -10,6 +10,7 @@ Automated test suite built with Python, Pytest, Playwright, and GitHub Actions.
 - **CI/CD**: GitHub Actions
 
 ## Project Structure
+```
 qa-automation-portfolio/
 ├── pages/                  # Page Object Model classes
 │   ├── login_page.py
@@ -21,6 +22,7 @@ qa-automation-portfolio/
 ├── .github/workflows/
 │   └── ci.yml              # GitHub Actions pipeline
 └── requirements.txt
+```
 
 ## Test Coverage
 
